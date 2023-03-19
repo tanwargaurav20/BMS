@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "aff0db1e-66f3-4911-b9af-4c1b66d0d9ac",
+		"name": "Sapient",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegisterUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@xyz.com\",\r\n    \"password\": \"admin\",\r\n    \"role\": \"admin\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin@xyz.com\",\r\n    \"password\": \"admin\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create theatre",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkB4eXouY29tIiwiaXNBZG1pbiI6dHJ1ZSwiZXhwIjoxNjc5MTk0Mjk4LCJpYXQiOjE2NzkxNzYyOTh9.DK98GfWJe9tAob-l9jXsBerozr-56JF5VxcRJHu0C8lZkZ72kPya7Sdy3sww3P7SKEADMPS-Am8rv3959q8MTA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"PVR\",\r\n    \"location\": {\r\n        \"id\": 1,\r\n        \"address\": \"Dwarka Vegas mall\",\r\n        \"city\": \"delhi\",\r\n        \"state\": \"delhi\",\r\n        \"country\": \"india\"\r\n    },\r\n    \"screens\": [\r\n        {\r\n            \"number\": 1,\r\n            \"capacity\": 30,\r\n            \"showTime\": \"18/03/2023 09:00:00 PM\",\r\n            \"movies\": [],\r\n            \"seats\": [\r\n                {\r\n                    \"rowNumber\": 1,\r\n                    \"number\": 1,\r\n                    \"available\": true,\r\n                    \"seatType\": \"REGULAR\"\r\n                },\r\n                {\r\n                    \"rowNumber\": 2,\r\n                    \"number\": 2,\r\n                    \"available\": true,\r\n                    \"seatType\": \"PREMIUM\"\r\n                },\r\n                {\r\n                    \"rowNumber\": 3,\r\n                    \"number\": 1,\r\n                    \"available\": true,\r\n                    \"seatType\": \"LUXURY\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/theatre",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"theatre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add movies to screen / audi",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkB4eXouY29tIiwiaXNBZG1pbiI6dHJ1ZSwiZXhwIjoxNjc5MTk0Mjk4LCJpYXQiOjE2NzkxNzYyOTh9.DK98GfWJe9tAob-l9jXsBerozr-56JF5VxcRJHu0C8lZkZ72kPya7Sdy3sww3P7SKEADMPS-Am8rv3959q8MTA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"RRR\",\r\n    \"description\": \"RRR desc\",\r\n    \"language\": \"Hindi\",\r\n    \"genre\": \"thriller\",\r\n    \"duration\": 120,\r\n    \"price\": \"500\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/movie?screenId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"movie"
+					],
+					"query": [
+						{
+							"key": "screenId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create discount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkB4eXouY29tIiwiaXNBZG1pbiI6dHJ1ZSwiZXhwIjoxNjc5Mjg2OTc3LCJpYXQiOjE2NzkyNjg5Nzd9.d0EI3uvCrNW0BHlA79LrXEzuZ52eB64ALfhWcZqXnxqWAI6xZIhJsAN0FGMxpm9AgzyjsJFqVr7uQ05vk7xGug",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"locationId\": 1,\r\n    \"theatreId\": 1,\r\n    \"discountCode\": \"20 off on 3rd\",\r\n    \"discountPercentage\": 20,\r\n    \"minQuantity\": 3,\r\n    \"active\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/discount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"discount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book/reserve seat",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkB4eXouY29tIiwiaXNBZG1pbiI6dHJ1ZSwiZXhwIjoxNjc5Mjg2OTc3LCJpYXQiOjE2NzkyNjg5Nzd9.d0EI3uvCrNW0BHlA79LrXEzuZ52eB64ALfhWcZqXnxqWAI6xZIhJsAN0FGMxpm9AgzyjsJFqVr7uQ05vk7xGug",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"screenId\": \"1\",\r\n    \"movieId\": \"1\",\r\n    \"seats\": [{\"id\": 1}, {\"id\":2}],\r\n    \"discountCode\": \"20 off on 3rd\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/bookings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "final booking / payment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkB4eXouY29tIiwiaXNBZG1pbiI6dHJ1ZSwiZXhwIjoxNjc5Mjg2OTc3LCJpYXQiOjE2NzkyNjg5Nzd9.d0EI3uvCrNW0BHlA79LrXEzuZ52eB64ALfhWcZqXnxqWAI6xZIhJsAN0FGMxpm9AgzyjsJFqVr7uQ05vk7xGug",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/bookings/1/pay",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"bookings",
+						"1",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search theater by critrea",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkB4eXouY29tIiwiaXNBZG1pbiI6dHJ1ZSwiZXhwIjoxNjc5MjAyMjU0LCJpYXQiOjE2NzkxODQyNTR9.xU1KdLm9qoTyQoqkJ3vD9k0RHHlhmw-G7E56XAgnMgJwDOffac9WxkVa1OLNg96yir5M7nQj0oKG7FZzCZQVgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"PVR\",\r\n    \"location\": {\r\n        \"id\": 1,\r\n        \"address\": \"address\",\r\n        \"city\": \"delhi\",\r\n        \"state\": \"delhi\",\r\n        \"country\": \"india\"\r\n    },\r\n    \"screens\": [\r\n        {\r\n            \"id\": 1,\r\n            \"number\": 1,\r\n            \"capacity\": 30,\r\n            \"showTime\": \"31/12/2019 11:59:59 PM\",\r\n            \"movies\": [],\r\n            \"seats\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"rowNumber\": 1,\r\n                    \"number\": 1,\r\n                    \"isAvailable\": true,\r\n                    \"seatType\": \"REGULAR\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/theatre/criteria?locationId=1&movieTitle=RRR&date=2019-12-31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"theatre",
+						"criteria"
+					],
+					"query": [
+						{
+							"key": "locationId",
+							"value": "1"
+						},
+						{
+							"key": "movieTitle",
+							"value": "RRR"
+						},
+						{
+							"key": "date",
+							"value": "2019-12-31"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
