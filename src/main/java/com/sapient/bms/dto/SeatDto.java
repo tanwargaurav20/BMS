@@ -1,6 +1,6 @@
 package com.sapient.bms.dto;
 
-public class SeatDTO {
+public class SeatDto {
     private Long id;
     private int number;
     private int rowNumber;
@@ -8,10 +8,10 @@ public class SeatDTO {
 
     private SeatType seatType;
 
-    public SeatDTO() {
+    public SeatDto() {
     }
 
-    public SeatDTO(int number, int rowNumber, SeatType seatType, boolean isAvailable) {
+    public SeatDto(int number, int rowNumber, SeatType seatType, boolean isAvailable) {
         this.number = number;
         this.rowNumber = rowNumber;
         this.seatType = seatType;

@@ -7,8 +7,6 @@ public class UserDto {
 
     private String role;
 
-    // Constructors, getters, and setters
-
 
     public String getRole() {
         return role;

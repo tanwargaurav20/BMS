@@ -22,6 +22,10 @@ public class Theatre {
     @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
     private List<Screen> screens;
 
+    @OneToMany(mappedBy = "theatre")
+    private List<Discount> discounts;
+
+
     // Constructors, getters, and setters
 
     public Theatre() {

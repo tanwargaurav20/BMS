@@ -2,7 +2,7 @@ package com.sapient.bms.dto;
 
 import java.math.BigDecimal;
 
-public class MovieDTO {
+public class MovieDto {
     private Long id;
     private String title;
     private String description;
@@ -11,7 +11,7 @@ public class MovieDTO {
     private int duration;
     private BigDecimal price;
 
-    public MovieDTO() {
+    public MovieDto() {
     }
 
     public Long getId() {

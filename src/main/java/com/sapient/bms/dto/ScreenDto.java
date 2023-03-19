@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class ScreenDto {
@@ -16,13 +15,13 @@ public class ScreenDto {
     @DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy hh:mm:ss a")
     private LocalDateTime showTime;
-    private List<MovieDTO> movies;
-    private List<SeatDTO> seats;
+    private List<MovieDto> movies;
+    private List<SeatDto> seats;
 
     public ScreenDto() {
     }
 
-    public ScreenDto(int number, int capacity, List<MovieDTO> movies, List<SeatDTO> seats) {
+    public ScreenDto(int number, int capacity, List<MovieDto> movies, List<SeatDto> seats) {
         this.number = number;
         this.capacity = capacity;
         this.movies = movies;
@@ -37,11 +36,11 @@ public class ScreenDto {
         return capacity;
     }
 
-    public List<MovieDTO> getMovies() {
+    public List<MovieDto> getMovies() {
         return movies;
     }
 
-    public List<SeatDTO> getSeats() {
+    public List<SeatDto> getSeats() {
         return seats;
     }
 
@@ -53,11 +52,11 @@ public class ScreenDto {
         this.capacity = capacity;
     }
 
-    public void setMovie(List<MovieDTO> movies) {
+    public void setMovie(List<MovieDto> movies) {
         this.movies = movies;
     }
 
-    public void setSeats(List<SeatDTO> seats) {
+    public void setSeats(List<SeatDto> seats) {
         this.seats = seats;
     }
 

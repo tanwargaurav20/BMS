@@ -1,6 +1,7 @@
 package com.sapient.bms.service.auth;
 
 import com.sapient.bms.dto.auth.AuthenticationRequest;
+import com.sapient.bms.dto.auth.UserDto;
 import com.sapient.bms.exception.BadRequestException;
 import com.sapient.bms.respository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,15 +43,15 @@ public class UserService implements UserDetailsService {
                 new UsernameNotFoundException("User not found with email: " + email));
     }
 
-    public void registerNewUser(AuthenticationRequest authenticationRequest) {
+    public void registerNewUser(UserDto userDto) {
 
-        if (userRepository.findByEmail(authenticationRequest.getUsername()).isPresent()) {
+        if (userRepository.findByEmail(userDto.getEmail()).isPresent()) {
             throw new BadRequestException("User already exists");
         }
         com.sapient.bms.entity.User user = new com.sapient.bms.entity.User();
-        user.setEmail(authenticationRequest.getUsername());
-        user.setPassword(passwordEncoder.encode(authenticationRequest.getPassword()));
-        user.setRole(authenticationRequest.getRole());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setRole(userDto.getRole());
         userRepository.save(user);
     }
 }

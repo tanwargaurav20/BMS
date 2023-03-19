@@ -34,11 +34,11 @@ public class BookingService {
     @Autowired
     private ReservationService reservationService;
 
-//    @Autowired
-//    private DiscountRepository discountRepository;
-//
-//    @Autowired
-//    private PromotionRepository promotionRepository;
+    @Autowired
+    private DiscountService discountService;
+
+    @Autowired
+    private PromotionService promotionService;
 
     @Transactional
     public Booking bookSeats(BookingRequest request) throws ScreenNotAvailableException, SeatNotAvailableException, MovieNotFoundException, PromotionNotFoundException {
@@ -53,21 +53,23 @@ public class BookingService {
 
         BigDecimal amount = movie.getPrice().multiply(BigDecimal.valueOf(request.getSeats().size()));
 
-//        if (request.getDiscountCode() != null) {
-//            Discount discount = discountRepository.findDiscountByCode(request.getDiscountCode());
-//            if (discount != null) {
-//                amount *= (100 - discount.getDiscountPercentage()) / 100.0;
-//            }
-//        }
+        if (request.getDiscountCode() != null ) {
+            Discount discount = discountService.findDiscountByCode(request.getDiscountCode());
+            if (discount != null) {
+                if (discount.getMinQuantity() > 0) {
+                    if (request.getSeats().size() >= discount.getMinQuantity()) {
+                        amount = payableAmount(amount, discount.getDiscountPercentage());
+                    }
+                } else {
+                    amount = payableAmount(amount, discount.getDiscountPercentage());
+                }
+            }
+        }
 
-//        if (request.getPromotionCode() != null) {
-//            Promotion promotion = promotionRepository.findPromotionByCode(request.getPromotionCode());
-//            if (promotion != null && promotion.isApplicable(amount)) {
-//                amount -= promotion.getDiscountAmount();
-//            } else {
-//                throw new PromotionNotFoundException("Promotion code is not applicable");
-//            }
-//        }
+
+        //Similarly promotion can be added as well
+        // Not writing code for it as not in scope of this test
+
 
         Booking booking = new Booking();
         booking.setScreen(screen);
@@ -119,5 +121,11 @@ public class BookingService {
         if (reservation != null) {
             reservationService.deleteReservation(reservation);
         }
+    }
+
+    private BigDecimal payableAmount(BigDecimal amount, double discountPercentage) {
+        return amount.multiply(BigDecimal.valueOf(100L)
+                        .subtract(BigDecimal.valueOf(discountPercentage)))
+                .divide(BigDecimal.valueOf(100L));
     }
 }

@@ -2,11 +2,8 @@ package com.sapient.bms.controller;
 
 import com.sapient.bms.dto.LocationDto;
 import com.sapient.bms.dto.ScreenDto;
-import com.sapient.bms.dto.SeatDTO;
+import com.sapient.bms.dto.SeatDto;
 import com.sapient.bms.dto.TheatreDto;
-import com.sapient.bms.entity.Reservation;
-import com.sapient.bms.entity.Screen;
-import com.sapient.bms.entity.Seat;
 import com.sapient.bms.entity.Theatre;
 import com.sapient.bms.service.ReservationService;
 import com.sapient.bms.service.SeatService;
@@ -21,7 +18,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -86,7 +82,7 @@ public class TheatreController {
                         screenResponseDTO.setId(screen.getId());
                         screenResponseDTO.setShowTime(screen.getShowTime());
                         screenResponseDTO.setSeats(screen.getSeats().stream()
-                                .map(entity -> modelMapper.map(entity, SeatDTO.class)).collect(Collectors.toList()));
+                                .map(entity -> modelMapper.map(entity, SeatDto.class)).collect(Collectors.toList()));
                         return screenResponseDTO;
                     })
                     .collect(Collectors.toList()));
@@ -95,7 +91,7 @@ public class TheatreController {
         return theatreResponseDTOs;
     }
 
-//    private List<SeatDTO> getAvailableSeats(Screen screen, LocalDate date) {
+//    private List<SeatDto> getAvailableSeats(Screen screen, LocalDate date) {
 //        List<Reservation> reservations = reservationService.getReservationsByScreenAndSeatInAndExpirationTimeAfter(screen, screen.getSeats(), LocalDateTime.now());
 //        List<Seat> bookedSeats = reservations.stream()
 //                .filter(reservation -> reservation.getExpirationTime().toLocalDate().equals(date))
@@ -107,7 +103,7 @@ public class TheatreController {
 //                .collect(Collectors.toList());
 //        return availableSeats.stream()
 //                .map(seat -> {
-//                    SeatDTO seatResponseDTO = new SeatDTO();
+//                    SeatDto seatResponseDTO = new SeatDto();
 //                    seatResponseDTO.setId(seat.getId());
 //                    seatResponseDTO.setRow(seat.getRowNumber());
 //                    seatResponseDTO.setNumber(seat.getNumber());

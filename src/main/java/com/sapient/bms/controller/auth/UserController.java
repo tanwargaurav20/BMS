@@ -2,6 +2,7 @@ package com.sapient.bms.controller.auth;
 
 import com.sapient.bms.dto.auth.AuthenticationRequest;
 import com.sapient.bms.dto.auth.AuthenticationResponse;
+import com.sapient.bms.dto.auth.UserDto;
 import com.sapient.bms.service.auth.UserService;
 import com.sapient.bms.service.auth.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class AuthenticationController {
+public class UserController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -43,15 +44,15 @@ public class AuthenticationController {
     }
 
     @PostMapping(value = "/user")
-    public ResponseEntity<?> registerUser(@RequestBody AuthenticationRequest authenticationRequest)
+    public ResponseEntity<?> registerUser(@RequestBody UserDto userDto)
             throws Exception {
         try {
-            userDetailsService.registerNewUser(authenticationRequest);
+            userDetailsService.registerNewUser(userDto);
         } catch (Exception e) {
             throw new Exception("USER_DISABLED", e);
         }
 
-        return ResponseEntity.ok("User Registered successfully. Username " + authenticationRequest.getUsername());
+        return ResponseEntity.ok("User Registered successfully. Username " + userDto.getEmail());
     }
 
 }

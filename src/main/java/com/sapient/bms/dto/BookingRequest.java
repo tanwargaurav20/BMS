@@ -1,14 +1,13 @@
 package com.sapient.bms.dto;
 
-import com.sapient.bms.entity.Seat;
-
 import java.util.List;
 
 public class BookingRequest {
     private Long screenId;
     private Long movieId;
-    private List<SeatDTO> seats;
-    private Long promotionId;
+    private List<SeatDto> seats;
+    private String discountCode;
+//    private PromotionDto promotion;
 
 
     public Long getMovieId() {
@@ -19,21 +18,29 @@ public class BookingRequest {
         this.movieId = movieId;
     }
 
-    public List<SeatDTO> getSeats() {
+    public List<SeatDto> getSeats() {
         return seats;
     }
 
-    public void setSeats(List<SeatDTO> seats) {
+    public void setSeats(List<SeatDto> seats) {
         this.seats = seats;
     }
 
-    public Long getPromotionId() {
-        return promotionId;
+    public String getDiscountCode() {
+        return discountCode;
     }
 
-    public void setPromotionId(Long promotionId) {
-        this.promotionId = promotionId;
+    public void setDiscount(String discountCode) {
+        this.discountCode = discountCode;
     }
+
+//    public PromotionDto getPromotion() {
+//        return promotion;
+//    }
+//
+//    public void setPromotion(PromotionDto promotionDto) {
+//        this.promotion = promotionDto;
+//    }
 
     public Long getScreenId() {
         return screenId;

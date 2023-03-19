@@ -18,7 +18,6 @@ public class User {
     private LocalDateTime registrationDate;
     private String role;
 
-
     public Long getId() {
         return id;
     }

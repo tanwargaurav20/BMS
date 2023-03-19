@@ -1,9 +1,7 @@
 package com.sapient.bms.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Location {
@@ -13,6 +11,10 @@ public class Location {
     private String city;
     private String state;
     private String country;
+
+    @OneToMany(mappedBy = "location")
+    private List<Discount> discounts;
+
 
     // Constructors, getters, and setters
 
