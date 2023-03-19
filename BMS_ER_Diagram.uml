@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Persistence</ID>
+  <OriginalElement>JavaeeElement:/afa7f5ad/sprPU/spr-common-model/jpa/JPA/PersistenceModel</OriginalElement>
+  <nodes>
+    <node x="1534.8036825850274" y="-178.03954882361393">Booking#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Booking.java</node>
+    <node x="1333.744802795615" y="-314.6542946843572">Reservation#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Reservation.java</node>
+    <node x="1768.5104942685157" y="-161.8070972353903">Movie#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Movie.java</node>
+    <node x="1275.5770035813919" y="-134.43496865522513">Promotion#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Promotion.java</node>
+    <node x="1228.5307754017626" y="-538.9902332878637">User#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/User.java</node>
+    <node x="1521.4230496474302" y="6.94953168539061">Discount#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Discount.java</node>
+    <node x="1750.6681707199473" y="-523.0190964141563">Location#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Location.java</node>
+    <node x="1497.3123337615448" y="-664.8500667785961">Seat#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Seat.java</node>
+    <node x="1765.4527354816998" y="-342.45708850096275">Screen#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Screen.java</node>
+    <node x="1568.1661247081413" y="-413.49443402381314">Theatre#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Theatre.java</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Booking#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Booking.java" target="Movie#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Movie.java" relationship="RELATION">
+      <point x="85.0" y="14.999548823613907" />
+      <point x="-65.5" y="-34.23290276460972" />
+    </edge>
+    <edge source="Reservation#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Reservation.java" target="User#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/User.java" relationship="RELATION">
+      <point x="1.9720438490367087E-4" y="-37.999705315642814" />
+      <point x="1418.745" y="-357.49" />
+      <point x="1467.0" y="-357.49" />
+      <point x="1467.0" y="-456.99" />
+      <point x="104.00022459823731" y="2.3328786369347654E-4" />
+    </edge>
+    <edge source="Booking#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Booking.java" target="Seat#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Seat.java" relationship="RELATION">
+      <point x="85.00031741497264" y="-4.5117638609326605E-4" />
+      <point x="1728.0" y="-118.04000000000002" />
+      <point x="1728.0" y="-582.85" />
+      <point x="96.49966623845512" y="6.677859607862047E-5" />
+    </edge>
+    <edge source="Screen#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Screen.java" target="Seat#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Seat.java" relationship="RELATION">
+      <point x="-86.49973548169987" y="8.85009627609179E-5" />
+      <point x="1728.0" y="-282.457" />
+      <point x="1728.0" y="-582.85" />
+      <point x="96.49966623845512" y="6.677859607862047E-5" />
+    </edge>
+    <edge source="Booking#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Booking.java" target="Reservation#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Reservation.java" relationship="RELATION">
+      <point x="0.0" y="-60.0" />
+      <point x="1619.8036825850274" y="-282.457" />
+      <point x="85.0" y="-5.802705315642811" />
+    </edge>
+    <edge source="Booking#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Booking.java" target="Screen#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Screen.java" relationship="RELATION">
+      <point x="85.00031741497264" y="-40.96045117638607" />
+      <point x="1747.0" y="-159.0" />
+      <point x="1747.0" y="-297.457" />
+      <point x="-86.49973548169987" y="-14.999911499037239" />
+    </edge>
+    <edge source="Seat#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Seat.java" target="User#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/User.java" relationship="RELATION">
+      <point x="-96.50033376154488" y="6.677859607862047E-5" />
+      <point x="1467.0" y="-582.85" />
+      <point x="1467.0" y="-456.99" />
+      <point x="104.00022459823731" y="2.3328786369347654E-4" />
+    </edge>
+    <edge source="Screen#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Screen.java" target="Theatre#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Theatre.java" relationship="RELATION">
+      <point x="0.0" y="-60.0" />
+      <point x="1851.9527354816998" y="-375.49443402381314" />
+      <point x="50.0" y="0.0" />
+    </edge>
+    <edge source="Movie#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Movie.java" target="Screen#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Screen.java" relationship="RELATION">
+      <point x="-65.5004942685157" y="9.723539028527739E-5" />
+      <point x="1747.0" y="-68.80700000000002" />
+      <point x="1747.0" y="-297.457" />
+      <point x="-86.49973548169987" y="-14.999911499037239" />
+    </edge>
+    <edge source="Theatre#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Theatre.java" target="Location#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Location.java" relationship="RELATION">
+      <point x="50.0" y="-35.02466239034311" />
+      <point x="-56.0" y="52.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.9298029556650246" showDependencies="false" x="1593.5" y="-258.99999999999994" />
+  <SelectedNodes>
+    <node>Theatre#file://I:/dev/cpr/cpr-common/spr-common-model/src/main/java/com/jpmorgan/ib/tcm/spr/common/model/entity/sapient/Theatre.java</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Properties</Category>
+  </Categories>
+</Diagram>
+
