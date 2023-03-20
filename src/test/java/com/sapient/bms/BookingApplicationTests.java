@@ -10,4 +10,6 @@ class BookingApplicationTests {
 	void contextLoads() {
 	}
 
+
+
 }

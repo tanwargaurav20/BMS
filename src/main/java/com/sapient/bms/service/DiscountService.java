@@ -1,21 +1,15 @@
 package com.sapient.bms.service;
 
 import com.sapient.bms.dto.DiscountDto;
-import com.sapient.bms.dto.LocationDto;
 import com.sapient.bms.entity.Discount;
 import com.sapient.bms.entity.Location;
 import com.sapient.bms.entity.Theatre;
-import com.sapient.bms.exception.BadRequestException;
 import com.sapient.bms.respository.DiscountRepository;
-import com.sapient.bms.respository.LocationRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -50,4 +44,9 @@ public class DiscountService {
     public Discount findDiscountByCode(String discountCode) {
         return discountRepository.findByDiscountCodeAndActive(discountCode, true).get(0);
     }
+
+    public Discount findByDiscountCodeAndLocationAndTheatreAndActive(String discountCode, Location location, Theatre theatre) {
+        return discountRepository.findByDiscountCodeAndLocationAndTheatreAndActive(discountCode, location, theatre, true).get(0);
+    }
+
 }

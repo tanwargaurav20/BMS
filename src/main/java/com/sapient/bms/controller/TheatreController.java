@@ -1,9 +1,7 @@
 package com.sapient.bms.controller;
 
-import com.sapient.bms.dto.LocationDto;
-import com.sapient.bms.dto.ScreenDto;
-import com.sapient.bms.dto.SeatDto;
-import com.sapient.bms.dto.TheatreDto;
+import com.sapient.bms.dto.*;
+import com.sapient.bms.entity.Movie;
 import com.sapient.bms.entity.Theatre;
 import com.sapient.bms.service.ReservationService;
 import com.sapient.bms.service.SeatService;
@@ -80,6 +78,7 @@ public class TheatreController {
                     .map(screen -> {
                         ScreenDto screenResponseDTO = new ScreenDto();
                         screenResponseDTO.setId(screen.getId());
+                        screenResponseDTO.setMovie(screen.getMovies().stream().map(entity -> modelMapper.map(entity, MovieDto.class)).collect(Collectors.toList()));
                         screenResponseDTO.setShowTime(screen.getShowTime());
                         screenResponseDTO.setSeats(screen.getSeats().stream()
                                 .map(entity -> modelMapper.map(entity, SeatDto.class)).collect(Collectors.toList()));

@@ -53,8 +53,8 @@ public class BookingService {
 
         BigDecimal amount = movie.getPrice().multiply(BigDecimal.valueOf(request.getSeats().size()));
 
-        if (request.getDiscountCode() != null ) {
-            Discount discount = discountService.findDiscountByCode(request.getDiscountCode());
+        if (request.getDiscountCode() != null) {
+            Discount discount = discountService.findByDiscountCodeAndLocationAndTheatreAndActive(request.getDiscountCode(), screen.getTheater().getLocation(), screen.getTheater());
             if (discount != null) {
                 if (discount.getMinQuantity() > 0) {
                     if (request.getSeats().size() >= discount.getMinQuantity()) {

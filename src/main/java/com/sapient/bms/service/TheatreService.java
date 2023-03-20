@@ -6,6 +6,7 @@ import com.sapient.bms.entity.Location;
 import com.sapient.bms.entity.Screen;
 import com.sapient.bms.entity.Seat;
 import com.sapient.bms.entity.Theatre;
+import com.sapient.bms.exception.BadRequestException;
 import com.sapient.bms.respository.TheatreRepository;
 import com.sapient.bms.service.auth.UserService;
 import org.modelmapper.ModelMapper;
@@ -86,7 +87,7 @@ public class TheatreService {
     }
 
     public List<Theatre> getTheatersMatchingCriteria(Long locationId, String movieTitle, LocalDateTime showTime) {
-        Location location = locationService.getLocationEntityById(locationId).orElseThrow(() -> new RuntimeException("Location doesn't exist. Id: " + locationId));
+        Location location = locationService.getLocationEntityById(locationId).orElseThrow(() -> new BadRequestException("Location doesn't exist. Id: " + locationId));
         return theatreRepository.findByLocationAndScreens_Movies_TitleAndScreens_ShowTimeAfter(location, movieTitle, showTime);
     }
 }
