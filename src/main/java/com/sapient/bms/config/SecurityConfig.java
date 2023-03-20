@@ -56,6 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/user").permitAll()
                 .antMatchers("/h2-console/**").permitAll() // enabling it for troubleshooting, won't be there in prod
+                .antMatchers("/swagger-ui.html","/webjars/**", "/swagger-resources/**", "/v2/api-docs").permitAll() // have it enabled for only admins or create a dev profile only usage
                 .anyRequest().authenticated()
                 //if any exception occurs call this
                 .and().exceptionHandling()
