@@ -19,7 +19,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @ActiveProfiles("test")
 class MovieControllerTest {
 
-    private final String createMovieRequestPayload =
+    private static final String createMovieRequestPayload =
             "{\n" +
                     "    \"title\": \"RRR\",\n" +
                     "    \"description\": \"RRR desc\",\n" +
@@ -29,7 +29,7 @@ class MovieControllerTest {
                     "    \"price\": \"500\"\n" +
                     "}\n";
 
-    private final String createTheatreRequestPayload =
+    private static final String createTheatreRequestPayload =
             "{\n" +
                     "    \"name\": \"PVR\",\n" +
                     "    \"location\": {\n" +
@@ -70,7 +70,7 @@ class MovieControllerTest {
                     "}";
 
     @Autowired
-    MockMvc mockMvc;
+    private MockMvc mockMvc;
 
     private String token;
 
